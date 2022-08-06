@@ -71,12 +71,14 @@ pub trait IterAccumulate: Iterator {
     /// use iter_accumulate::IterAccumulate;
     ///
     /// let input = [1, 2, 3, 4, 5];
-    /// let result = input
-    ///     .into_iter()
-    ///     .accumulate(1, |acc, i| acc * i)
-    ///     .collect::<Vec<_>>();
+    /// let mut iter = input.iter().accumulate(1, |acc, i| acc * i);
     ///
-    /// assert_eq!(result, vec![1, 2, 6, 24, 120]);
+    /// assert_eq!(iter.next(), Some(1));
+    /// assert_eq!(iter.next(), Some(2));
+    /// assert_eq!(iter.next(), Some(6));
+    /// assert_eq!(iter.next(), Some(24));
+    /// assert_eq!(iter.next(), Some(120));
+    /// assert_eq!(iter.next(), None);
     /// ```
     ///
     /// [`fold()`]: Iterator::fold
