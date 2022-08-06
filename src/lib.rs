@@ -43,6 +43,11 @@ where
     fn size_hint(&self) -> (usize, Option<usize>) {
         self.iter.size_hint()
     }
+
+    #[inline]
+    fn count(self) -> usize {
+        self.iter.count()
+    }
 }
 
 /// An [`Iterator`] blanket implementation that provides the [`accumulate()`](Self::accumulate)
