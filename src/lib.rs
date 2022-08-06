@@ -7,6 +7,7 @@
 /// closure.
 ///
 /// See [`IterAccumulate::accumulate()`] for more information.
+#[must_use = "iterator adaptors are lazy and do nothing unless consumed"]
 pub struct Accumulate<I, B, F> {
     iter: I,
     acc: B,
