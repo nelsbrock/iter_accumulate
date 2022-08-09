@@ -7,3 +7,4 @@ description = "An iterator adaptor that accumulates the elements and yields the 
 repository = "https://github.com/nelsbrock/iter_accumulate"
 license = "Apache-2.0"
 keywords = ["accumulate", "iterator", "fold"]
+categories = ["rust-patterns", "no-std"]
