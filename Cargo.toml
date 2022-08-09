@@ -5,6 +5,6 @@ authors = ["Niklas Elsbrock <mail@nelsbrock.de>"]
 edition = "2021"
 description = "An iterator adaptor that accumulates the elements and yields the current accumulated value for each iteration"
 repository = "https://github.com/nelsbrock/iter_accumulate"
-license = "Apache-2.0"
+license = "MIT OR Apache-2.0"
 keywords = ["accumulate", "iterator", "fold"]
 categories = ["rust-patterns", "no-std"]
