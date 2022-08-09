@@ -8,10 +8,24 @@
 ///
 /// See [`IterAccumulate::accumulate()`] for more information.
 #[must_use = "iterator adaptors are lazy and do nothing unless consumed"]
+#[derive(Clone)]
 pub struct Accumulate<I, B, F> {
     iter: I,
     acc: B,
     f: F,
+}
+
+impl<I, B, F> fmt::Debug for Accumulate<I, B, F>
+where
+    I: fmt::Debug,
+    B: fmt::Debug,
+{
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        f.debug_struct("Accumulate")
+            .field("iter", &self.iter)
+            .field("acc", &self.acc)
+            .finish()
+    }
 }
 
 impl<I, B, F> Accumulate<I, B, F> {
