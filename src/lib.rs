@@ -47,6 +47,12 @@ pub struct Accumulate<I, B, F> {
     f: F,
 }
 
+impl<I, B, F> Accumulate<I, B, F> {
+    fn new(iter: I, acc: B, f: F) -> Accumulate<I, B, F> {
+        Accumulate { iter, acc, f }
+    }
+}
+
 impl<I, B, F> fmt::Debug for Accumulate<I, B, F>
 where
     I: fmt::Debug,
@@ -57,12 +63,6 @@ where
             .field("iter", &self.iter)
             .field("acc", &self.acc)
             .finish()
-    }
-}
-
-impl<I, B, F> Accumulate<I, B, F> {
-    fn new(iter: I, acc: B, f: F) -> Accumulate<I, B, F> {
-        Accumulate { iter, acc, f }
     }
 }
 
