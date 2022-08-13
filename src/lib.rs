@@ -48,8 +48,8 @@ pub struct Accumulate<I, B, F> {
 }
 
 impl<I, B, F> Accumulate<I, B, F> {
-    fn new(iter: I, acc: B, f: F) -> Accumulate<I, B, F> {
-        Accumulate { iter, acc, f }
+    fn new(iter: I, acc: B, f: F) -> Self {
+        Self { iter, acc, f }
     }
 }
 
