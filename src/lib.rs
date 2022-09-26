@@ -62,7 +62,7 @@ where
         f.debug_struct("Accumulate")
             .field("iter", &self.iter)
             .field("acc", &self.acc)
-            .finish()
+            .finish_non_exhaustive()
     }
 }
 
