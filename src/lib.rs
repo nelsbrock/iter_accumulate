@@ -4,14 +4,27 @@
 //! This crate provides [`accumulate()`], an iterator adaptor that accumulates the elements from the
 //! base iterator using the provided closure.
 //!
-//! [`accumulate()`] is similar to [`fold()`], but instead of returning the final accumulated
-//! result, it returns an iterator that yields the current accumulated value for each iteration.
-//! In other words, the last element yielded by [`accumulate()`] is what would have been returned
-//! by [`fold()`] if it was used instead.
+//! [`accumulate()`] takes two arguments: an initial value, and a closure with two arguments:
+//! an 'accumulator', and an element.
+//!
+//! The initial value is the value the accumulator will have when the closure is first called.
+//! On each call to [`next()`], the closure is executed with the current accumulator and the element
+//! yielded by the upstream iterator. The return value of the closure is then set as the new value
+//! of the accumulator and returned to the caller.
+//!
+//! Since the accumulated value needs to be both stored as the accumulator *and* returned to the
+//! caller, the accumulator type must implement [`Clone`].
 //!
 //! The returned iterator is **not** fused and it is not specified what happens when the base
 //! iterator returns [`None`].
 //! If you want a fused iterator, use [`fuse()`].
+//!
+//! # Differences to [`fold()`]
+//!
+//! In principle, [`accumulate()`] is similar to [`fold()`]. However, instead of returning the final
+//! accumulated result, it returns an iterator that yields the current value of the accumulator for
+//! each iteration. In other words, the last element yielded by [`accumulate()`] is what would have
+//! been returned by [`fold()`] if it had been used instead.
 //!
 //! # Examples
 //!
@@ -31,6 +44,7 @@
 //!
 //! [`accumulate()`]: IterAccumulate::accumulate
 //! [`fold()`]: Iterator::fold
+//! [`next()`]: Iterator::next
 //! [`fuse()`]: Iterator::fuse
 
 use core::fmt;
