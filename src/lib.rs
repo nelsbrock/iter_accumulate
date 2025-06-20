@@ -13,7 +13,8 @@
 //! of the accumulator and returned to the caller.
 //!
 //! Since the accumulated value needs to be both stored as the accumulator *and* returned to the
-//! caller, the accumulator type must implement [`Clone`].
+//! caller, the accumulator type must implement [`Copy`]. If you want to operate on non-copyable
+//! types, you should use [`Iterator::scan`] instead.
 //!
 //! The returned iterator is **not** fused and it is not specified what happens when the base
 //! iterator returns [`None`].
