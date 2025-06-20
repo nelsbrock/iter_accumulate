@@ -1,6 +1,6 @@
 [package]
 name = "iter_accumulate"
-version = "1.0.0"
+version = "1.0.1"
 authors = ["Niklas Elsbrock <mail@nelsbrock.de>"]
 edition = "2021"
 description = "An iterator adaptor that accumulates the elements and yields the current accumulated value for each iteration"
